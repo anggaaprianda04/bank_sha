@@ -3,16 +3,15 @@ import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widgets/custom_appbar.dart';
 import 'package:bank_sha/ui/widgets/custom_button_field.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
-class TopUpAmountPage extends StatefulWidget {
-  const TopUpAmountPage({super.key});
+class TransferAmountPage extends StatefulWidget {
+  const TransferAmountPage({super.key});
 
   @override
-  State<TopUpAmountPage> createState() => _TopUpAmountPageState();
+  State<TransferAmountPage> createState() => _TransferAmountPageState();
 }
 
-class _TopUpAmountPageState extends State<TopUpAmountPage> {
+class _TransferAmountPageState extends State<TransferAmountPage> {
   TextEditingController amountController = TextEditingController(text: '0');
 
   addAmount(String number) {
@@ -197,13 +196,11 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 58),
             child: CustomButtonField(
-              title: 'Checkout Now',
+              title: 'Continue',
               onPressed: () async {
                 if (await Navigator.pushNamed(context, '/pin') == true) {
-                  launchUrlString('https://demo.midtrans.com');
-                  // ignore: use_build_context_synchronously
                   Navigator.pushNamedAndRemoveUntil(
-                      context, '/topup-success', (route) => false);
+                      context, '/transfer-success', (route) => false);
                 }
               },
             ),
