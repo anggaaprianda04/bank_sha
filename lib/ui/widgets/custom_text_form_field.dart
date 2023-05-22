@@ -1,6 +1,7 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomTextFormFiled extends StatelessWidget {
   final bool obsecureText;
   final bool iconPassword;
